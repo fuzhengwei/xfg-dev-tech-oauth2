@@ -1,0 +1,20 @@
+server:
+  port: 8091
+  application:
+    name: xfg-dev-tech-http
+
+# zookeeper 自定义链接配置
+zookeeper:
+  sdk:
+    config:
+      connect-string: 10.253.6.71:2181
+      base-sleep-time-ms: 1000
+      max-retries: 3
+      session-timeout-ms: 1800000
+      connection-timeout-ms: 30000
+
+# 日志
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

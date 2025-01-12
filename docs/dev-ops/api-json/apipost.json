@@ -1,0 +1,693 @@
+{
+	"project": {
+		"name": "xfg-studio-demo",
+		"description": "",
+		"details": {
+			"variable": [],
+			"servers": [
+				{
+					"server_id": "default",
+					"name": "默认服务"
+				}
+			],
+			"markList": [
+				{
+					"key": "developing",
+					"name": "开发中",
+					"color": "#3A86FF",
+					"is_default": true
+				},
+				{
+					"key": "complated",
+					"name": "已完成",
+					"color": "#2BA58F",
+					"is_default": true
+				},
+				{
+					"key": "modifying",
+					"name": "需修改",
+					"color": "#EC4646",
+					"is_default": true
+				}
+			],
+			"script": {
+				"pre_script": "",
+				"test": ""
+			},
+			"request": {
+				"query": [
+					{
+						"is_checked": "1",
+						"type": "Text",
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"header": [
+					{
+						"is_checked": "1",
+						"type": "Text",
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": [
+					{
+						"is_checked": "1",
+						"type": "Text",
+						"key": "",
+						"value": "",
+						"description": ""
+					}
+				]
+			},
+			"mock_rules": []
+		}
+	},
+	"apis": [
+		{
+			"target_type": "folder",
+			"name": "oauth2",
+			"mark": "developing",
+			"sort": 23,
+			"tags": [],
+			"created_uuid": "UBKDXAD9A7E8",
+			"request": {
+				"description": ""
+			},
+			"children": [
+				{
+					"target_type": "api",
+					"name": "3. 授权码模式 - 获取授权码",
+					"mark": "developing",
+					"sort": 4,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "GET",
+					"mock": "{}",
+					"mock_url": "/oauth/authorize",
+					"request": {
+						"url": "http://127.0.0.1:8091/oauth/authorize?client_id=xfg-studio&response_type=code&grant_type=authorization_code",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"body": {
+							"mode": "form-data",
+							"parameter": [],
+							"raw": "",
+							"raw_para": [],
+							"raw_schema": {
+								"type": "object"
+							}
+						},
+						"header": {
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "Cookie",
+									"value": "JSESSIONID=F5B428B716F7C0181EE237FCB34EE9D",
+									"not_null": 1,
+									"type": "Text"
+								}
+							]
+						},
+						"query": {
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": -1,
+									"key": "",
+									"value": "",
+									"not_null": 1,
+									"type": "Text",
+									"static": true
+								},
+								{
+									"description": "",
+									"is_checked": 1,
+									"key": "client_id",
+									"type": "Text",
+									"not_null": 1,
+									"field_type": "String",
+									"value": "xfg-studio"
+								},
+								{
+									"description": "",
+									"is_checked": 1,
+									"key": "response_type",
+									"type": "Text",
+									"not_null": 1,
+									"field_type": "String",
+									"value": "code"
+								},
+								{
+									"description": "",
+									"is_checked": 1,
+									"key": "grant_type",
+									"type": "Text",
+									"not_null": 1,
+									"field_type": "String",
+									"value": "authorization_code"
+								}
+							]
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				},
+				{
+					"target_type": "api",
+					"name": "3. 授权码模式 - 用户认证(登录)",
+					"mark": "developing",
+					"sort": 3,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "POST",
+					"mock": "{}",
+					"mock_url": "/login",
+					"request": {
+						"url": "http://127.0.0.1:8091/login",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"body": {
+							"mode": "form-data",
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "username",
+									"value": "xiaofuge",
+									"not_null": 1,
+									"type": "Text"
+								},
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "password",
+									"value": "123456",
+									"not_null": 1,
+									"type": "Text"
+								}
+							],
+							"raw": "",
+							"raw_para": [],
+							"raw_schema": {
+								"type": "object"
+							}
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				},
+				{
+					"target_type": "api",
+					"name": "2. 用户密码模式",
+					"mark": "developing",
+					"sort": 2,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "POST",
+					"mock": "{}",
+					"mock_url": "/oauth/token",
+					"request": {
+						"url": "http://127.0.0.1:8091/oauth/token",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"body": {
+							"mode": "form-data",
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "grant_type",
+									"value": "password",
+									"not_null": 1,
+									"type": "Text"
+								},
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "username",
+									"value": "xiaofuge",
+									"not_null": 1,
+									"type": "Text"
+								},
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "password",
+									"value": "123456",
+									"not_null": 1,
+									"type": "Text"
+								}
+							],
+							"raw": "",
+							"raw_para": [],
+							"raw_schema": {
+								"type": "object"
+							}
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				},
+				{
+					"target_type": "api",
+					"name": "5. 检查令牌",
+					"mark": "developing",
+					"sort": 7,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "POST",
+					"mock": "{}",
+					"mock_url": "/oauth/check_token",
+					"request": {
+						"url": "http://127.0.0.1:8091/oauth/check_token",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"body": {
+							"mode": "form-data",
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYmlnLW1hcmtldC1hcHAiXSwiZXhwIjoxNzM2NjU1OTI0LCJ1c2VyX25hbWUiOiJ4aWFvZnVnZSIsImp0aSI6IjRjYThmNTExLThkYzctNDNmNy04MTA1LTgwZjRlNzBmMTQxZiIsImNsaWVudF9pZCI6InhmZy1zdHVkaW8iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.uEOP6UqwhSIel0GfyZ4oocw_0tyh5wA2W3Rsb_tnbl8",
+									"not_null": 1,
+									"type": "Text"
+								}
+							],
+							"raw": "",
+							"raw_para": [],
+							"raw_schema": {
+								"type": "object"
+							}
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				},
+				{
+					"target_type": "api",
+					"name": "1. 客户端凭证式(此模式不支持刷新令牌)",
+					"mark": "developing",
+					"sort": 1,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "POST",
+					"mock": "{}",
+					"mock_url": "/oauth/token",
+					"request": {
+						"url": "http://127.0.0.1:8091/oauth/token?grant_type=client_credentials",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"query": {
+							"parameter": [
+								{
+									"description": "",
+									"is_checked": 1,
+									"key": "grant_type",
+									"type": "Text",
+									"not_null": 1,
+									"field_type": "String",
+									"value": "client_credentials"
+								}
+							]
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				},
+				{
+					"target_type": "api",
+					"name": "3. 授权码模式 - 获取令牌",
+					"mark": "developing",
+					"sort": 5,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "POST",
+					"mock": "{}",
+					"mock_url": "/oauth/token",
+					"request": {
+						"url": "http://127.0.0.1:8091/oauth/token",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"body": {
+							"mode": "form-data",
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "grant_type",
+									"value": "authorization_code",
+									"not_null": 1,
+									"type": "Text"
+								},
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "redirect_uri",
+									"value": "http://localhost:9528/code/redirect",
+									"not_null": 1,
+									"type": "Text"
+								},
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "code",
+									"value": "oopkk",
+									"not_null": 1,
+									"type": "Text"
+								}
+							],
+							"raw": "",
+							"raw_para": [],
+							"raw_schema": {
+								"type": "object"
+							}
+						},
+						"header": {
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "Cookie",
+									"value": "97F1E892C8DC526A912D31674A0CDA8B",
+									"not_null": 1,
+									"type": "Text"
+								}
+							]
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				},
+				{
+					"target_type": "api",
+					"name": "4. 刷新令牌",
+					"mark": "developing",
+					"sort": 6,
+					"tags": [],
+					"created_uuid": "UBKDXAD9A7E8",
+					"method": "POST",
+					"mock": "{}",
+					"mock_url": "/oauth/token",
+					"request": {
+						"url": "http://127.0.0.1:8091/oauth/token",
+						"description": "",
+						"event": {
+							"pre_script": "",
+							"test": ""
+						},
+						"pre_tasks": [],
+						"post_tasks": [],
+						"body": {
+							"mode": "form-data",
+							"parameter": [
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "grant_type",
+									"value": "refresh_token",
+									"not_null": 1,
+									"type": "Text"
+								},
+								{
+									"description": "",
+									"field_type": "String",
+									"is_checked": 1,
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYmlnLW1hcmtldC1hcHAiXSwidXNlcl9uYW1lIjoieGlhb2Z1Z2UiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXRpIjoiN2JjMDY5ZTgtNzU4NS00YmMwLThhZWMtNTgwYTFjYWNkOGYwIiwiZXhwIjoxNzM5MjM5NTQ2LCJqdGkiOiI2NTljZGMzYy04ZDZmLTQ0ODktODNhNy00NDFkNjE3NDRmOWEiLCJjbGllbnRfaWQiOiJ4Zmctc3R1ZGlvIn0.Ke-1nZI4eMhv_ZxoX0mCD_08O5hDLtPdTUKjpr4pZBc",
+									"not_null": 1,
+									"type": "Text"
+								}
+							],
+							"raw": "",
+							"raw_para": [],
+							"raw_schema": {
+								"type": "object"
+							}
+						}
+					},
+					"response": {
+						"success": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "成功",
+								"isDefault": 1,
+								"code": 200,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						},
+						"error": {
+							"raw": "",
+							"parameter": [],
+							"expect": {
+								"name": "失败",
+								"isDefault": -1,
+								"code": 404,
+								"contentType": "json",
+								"verifyType": "schema",
+								"mock": "",
+								"schema": []
+							}
+						}
+					},
+					"children": []
+				}
+			]
+		}
+	],
+	"envs": [
+		{
+			"env_id": "-1",
+			"list": {},
+			"name": "默认环境",
+			"pre_url": "",
+			"pre_urls": {
+				"default": ""
+			}
+		},
+		{
+			"env_id": "-2",
+			"list": {},
+			"name": "Mock环境",
+			"pre_url": "https://console-mock.apipost.cn/mock/b0cd9920-503c-486b-9882-d785e6837db0/",
+			"pre_urls": {
+				"default": "https://console-mock.apipost.cn/mock/b0cd9920-503c-486b-9882-d785e6837db0/"
+			}
+		}
+	],
+	"models": []
+}

@@ -1,0 +1,718 @@
+{
+	"info": {
+		"name": "xfg-studio-demo",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [],
+	"auth": {
+		"type": "noauth",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "",
+				"type": "string"
+			}
+		],
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		],
+		"basic": [
+			{
+				"key": "username",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"env": [],
+	"item": [
+		{
+			"name": "oauth2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"item": [
+				{
+					"name": "3. 授权码模式 - 获取授权码",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://127.0.0.1:8091/oauth/authorize?client_id=xfg-studio&response_type=code&grant_type=authorization_code",
+							"host": [
+								"http"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "xfg-studio"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code"
+								}
+							],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"oauth",
+								"authorize"
+							]
+						},
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID=F5B428B716F7C0181EE237FCB34EE9D",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"raw": "{}",
+							"formdata": []
+						},
+						"auth": {
+							"type": "noauth",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "ABC",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				},
+				{
+					"name": "3. 授权码模式 - 用户认证(登录)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://127.0.0.1:8091/login",
+							"host": [
+								"http"
+							],
+							"query": [],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"login"
+							]
+						},
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"raw": "{}",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "xiaofuge",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"auth": {
+							"type": "basic",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BASE QUJDOjEyMzQ1Ng==",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "xfg-studio",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				},
+				{
+					"name": "2. 用户密码模式",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://127.0.0.1:8091/oauth/token",
+							"host": [
+								"http"
+							],
+							"query": [],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"oauth",
+								"token"
+							]
+						},
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"raw": "{}",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "xiaofuge",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"auth": {
+							"type": "basic",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "xfg-studio",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				},
+				{
+					"name": "5. 检查令牌",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://127.0.0.1:8091/oauth/check_token",
+							"host": [
+								"http"
+							],
+							"query": [],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"oauth",
+								"check_token"
+							]
+						},
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"raw": "{}",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYmlnLW1hcmtldC1hcHAiXSwiZXhwIjoxNzM2NjU1OTI0LCJ1c2VyX25hbWUiOiJ4aWFvZnVnZSIsImp0aSI6IjRjYThmNTExLThkYzctNDNmNy04MTA1LTgwZjRlNzBmMTQxZiIsImNsaWVudF9pZCI6InhmZy1zdHVkaW8iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.uEOP6UqwhSIel0GfyZ4oocw_0tyh5wA2W3Rsb_tnbl8",
+									"type": "text"
+								}
+							]
+						},
+						"auth": {
+							"type": "basic",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "xfg-studio",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				},
+				{
+					"name": "1. 客户端凭证式(此模式不支持刷新令牌)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://127.0.0.1:8091/oauth/token?grant_type=client_credentials",
+							"host": [
+								"http"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								}
+							],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"oauth",
+								"token"
+							]
+						},
+						"header": [],
+						"body": {
+							"mode": "none",
+							"raw": "{}"
+						},
+						"auth": {
+							"type": "basic",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "xfg-studio",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				},
+				{
+					"name": "3. 授权码模式 - 获取令牌",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://127.0.0.1:8091/oauth/token",
+							"host": [
+								"http"
+							],
+							"query": [],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"oauth",
+								"token"
+							]
+						},
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "97F1E892C8DC526A912D31674A0CDA8B",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"raw": "{}",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:9528/code/redirect",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "oopkk",
+									"type": "text"
+								}
+							]
+						},
+						"auth": {
+							"type": "basic",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "xfg-studio",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				},
+				{
+					"name": "4. 刷新令牌",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://127.0.0.1:8091/oauth/token",
+							"host": [
+								"http"
+							],
+							"query": [],
+							"variable": [],
+							"path": [
+								"127.0.0.1:8091",
+								"oauth",
+								"token"
+							]
+						},
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"raw": "{}",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiYmlnLW1hcmtldC1hcHAiXSwidXNlcl9uYW1lIjoieGlhb2Z1Z2UiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiYXRpIjoiN2JjMDY5ZTgtNzU4NS00YmMwLThhZWMtNTgwYTFjYWNkOGYwIiwiZXhwIjoxNzM5MjM5NTQ2LCJqdGkiOiI2NTljZGMzYy04ZDZmLTQ0ODktODNhNy00NDFkNjE3NDRmOWEiLCJjbGllbnRfaWQiOiJ4Zmctc3R1ZGlvIn0.Ke-1nZI4eMhv_ZxoX0mCD_08O5hDLtPdTUKjpr4pZBc",
+									"type": "text"
+								}
+							]
+						},
+						"auth": {
+							"type": "basic",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							],
+							"basic": [
+								{
+									"key": "username",
+									"value": "xfg-studio",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"description": ""
+					}
+				}
+			]
+		}
+	]
+}

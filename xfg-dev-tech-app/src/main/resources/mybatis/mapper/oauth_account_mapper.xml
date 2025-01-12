@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bugstack.xfg.dev.tech.infrastructure.dao.IOauthAccountDao">
+
+    <resultMap id="dataMap" type="cn.bugstack.xfg.dev.tech.infrastructure.dao.po.OauthAccount">
+        <id column="id" property="id"/>
+        <result column="client_id" property="clientId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="mobile" property="mobile"/>
+        <result column="email" property="email"/>
+        <result column="enabled" property="enabled"/>
+        <result column="account_non_expired" property="accountNonExpired"/>
+        <result column="credentials_non_expired" property="accountNonLocked"/>
+        <result column="account_non_locked" property="credentialsNonExpired"/>
+        <result column="account_non_deleted" property="accountNonDeleted"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <select id="loadUserByUsername" resultMap="dataMap">
+        select client_id, username, password, mobile, email,
+               enabled, account_non_expired, credentials_non_expired, account_non_locked, account_non_deleted,
+               created_time, updated_time
+        from oauth_account
+        where client_id = #{clientId} and username = #{userName} and account_non_deleted = true
+        limit 1
+    </select>
+
+</mapper>
