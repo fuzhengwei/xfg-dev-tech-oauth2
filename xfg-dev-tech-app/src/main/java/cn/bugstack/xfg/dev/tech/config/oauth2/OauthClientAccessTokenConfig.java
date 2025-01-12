@@ -77,11 +77,11 @@ public class OauthClientAccessTokenConfig {
     public AuthorizationServerTokenServices tokenServices(JdbcClientDetailsService jdbcClientDetailsService, TokenStore tokenStore, TokenEnhancerChain tokenEnhancerChain) {
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setClientDetailsService(jdbcClientDetailsService);
-        // 允许支持refreshToken
+        // 允许支持 refreshToken
         tokenServices.setSupportRefreshToken(true);
         // refreshToken 不重用策略
         tokenServices.setReuseRefreshToken(false);
-        //设置Token存储方式
+        // 设置Token存储方式
         tokenServices.setTokenStore(tokenStore);
         tokenServices.setTokenEnhancer(tokenEnhancerChain);
         return tokenServices;

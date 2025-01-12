@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and().csrf().disable()
                 .authorizeRequests()
-                //处理跨域请求中的Preflight请求
+                // 处理跨域请求中的Preflight请求
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .antMatchers("/oauth/**", "/user/**", "/actuator/**", "/error", "/open/api")
