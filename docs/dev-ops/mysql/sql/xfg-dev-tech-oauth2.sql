@@ -7,7 +7,7 @@
 #
 # 主机: 192.168.1.108 (MySQL 8.0.32)
 # 数据库: xfg-dev-tech-oauth2
-# 生成时间: 2025-01-12 02:53:08 +0000
+# 生成时间: 2025-01-12 08:34:44 +0000
 # ************************************************************
 
 
@@ -68,8 +68,8 @@ LOCK TABLES `oauth_account` WRITE;
 
 INSERT INTO `oauth_account` (`id`, `client_id`, `username`, `password`, `mobile`, `email`, `enabled`, `account_non_expired`, `credentials_non_expired`, `account_non_locked`, `account_non_deleted`, `created_time`, `updated_time`)
 VALUES
-	(1,'xfg-studio','liergou','$2a$10$EZbplKhID6StHwBIoNnsLOPPj4/zyyFNywvZ1H.uemC1gEScZnmmy','13500001111','184172133@qq.com',1,1,1,1,1,'2025-01-09 13:16:57','2025-01-12 10:02:18'),
-	(2,'xfg-studio','xiaofuge','$2a$10$EZbplKhID6StHwBIoNnsLOPPj4/zyyFNywvZ1H.uemC1gEScZnmmy','13500002222','523088136@qq.com',1,1,1,1,1,'2025-01-09 13:16:57','2025-01-12 10:02:11');
+	(1,'xfg-studio','liergou','$2a$10$6KX0/28LknA31sEHa5NVauLPB8eB6hNsR.lbVuH9z8VQ7.N4jzlMO','13500001111','184172133@qq.com',1,1,1,1,1,'2025-01-09 13:16:57','2025-01-12 16:32:44'),
+	(2,'xfg-studio','xiaofuge','$2a$10$6KX0/28LknA31sEHa5NVauLPB8eB6hNsR.lbVuH9z8VQ7.N4jzlMO','13500002222','523088136@qq.com',1,1,1,1,1,'2025-01-09 13:16:57','2025-01-12 16:32:48');
 
 /*!40000 ALTER TABLE `oauth_account` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -116,7 +116,7 @@ LOCK TABLES `oauth_client_details` WRITE;
 
 INSERT INTO `oauth_client_details` (`client_id`, `resource_ids`, `client_secret`, `scope`, `authorized_grant_types`, `web_server_redirect_uri`, `authorities`, `access_token_validity`, `refresh_token_validity`, `additional_information`, `autoapprove`)
 VALUES
-	('xfg-studio','big-market-app','$2a$10$EZbplKhID6StHwBIoNnsLOPPj4/zyyFNywvZ1H.uemC1gEScZnmmy','read,write','client_credentials,authorization_code,password,refresh_token,implicit','http://bugstack.cn','user',7199,2592000,NULL,'true');
+	('xfg-studio','big-market-app','$2a$10$6KX0/28LknA31sEHa5NVauLPB8eB6hNsR.lbVuH9z8VQ7.N4jzlMO','read,write','client_credentials,authorization_code,password,refresh_token,implicit','http://bugstack.cn','user',7199,2592000,NULL,'true');
 
 /*!40000 ALTER TABLE `oauth_client_details` ENABLE KEYS */;
 UNLOCK TABLES;

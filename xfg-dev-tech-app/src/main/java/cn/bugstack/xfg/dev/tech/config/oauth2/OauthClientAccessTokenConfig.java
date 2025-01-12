@@ -2,7 +2,6 @@ package cn.bugstack.xfg.dev.tech.config.oauth2;
 
 import cn.bugstack.xfg.dev.tech.config.valobj.UserAccountVO;
 import cn.bugstack.xfg.dev.tech.infrastructure.dao.po.OauthAccount;
-import org.springframework.beans.BeanUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,7 +20,7 @@ import java.util.Map;
 @Configuration
 public class OauthClientAccessTokenConfig {
 
-    private static final String SIGNING_KEY = "5371f568a45e5ab1f442c38e0932aef24447139b";
+    private static final String SIGNING_KEY = "re0wr8e09w8r0ewjodijiodosjf23093820909";
 
     @Bean
     public JdbcClientDetailsService jdbcClientDetailsService(DataSource dataSource) {
@@ -34,7 +33,7 @@ public class OauthClientAccessTokenConfig {
     }
 
     @Bean
-    JwtAccessTokenConverter jwtAccessTokenConverter() {
+    public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
         converter.setSigningKey(SIGNING_KEY);
         return converter;
